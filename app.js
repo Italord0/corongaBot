@@ -24,9 +24,9 @@ function getCorona() {
                         var novasmortes = (json.deaths - mortes)
                         var novoscasos = (json.cases - casos)
                         if (novoscasos == 1) {
-                            tweet = novasmortes + " nova morte pelo coronavírus no Brasil :( Total: " + json.deaths + "\nNovos casos:" + novoscasos;
+                            tweet = novasmortes + " nova morte pelo coronavírus no Brasil :( Total: " + json.deaths + "\nNovos casos: " + novoscasos;
                         } else {
-                            tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :( Total :" + json.deaths + "\nNovos casos:" + novoscasos;
+                            tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :( Total :" + json.deaths + "\nNovos casos: " + novoscasos;
                         }
                         mortes = json.deaths;
                         casos = json.cases;
