@@ -2,10 +2,8 @@ const cliente = require("./config/twitter.js"); //Importa o arquivo twitter.js
 var CronJob = require('cron').CronJob; //Importa o "node-cron"
 var webservice = require('./config/api.js');
 var app = require("./config/server.js");
-//Configura a porta disponível ou a porta 3000
-//var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
-//Configura o host disponível ou "0.0.0.0"
-//var server_host = process.env.YOUR_HOST || '0.0.0.0';
+var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
 var casos = 0, casosHoje, mortes = 0, mortesHoje, curados, doentes, criticos;
 
 app.listen(server_port, server_host, function () {
