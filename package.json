@@ -1,0 +1,21 @@
+{
+  "name": "corongabot",
+  "version": "1.0.0",
+  "description": "Bot para twitter mostrando atualizações sobre o coronavirus no brasil",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Italo melo",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "node-cron": "^2.0.3",
+    "twitter": "^1.7.1",
+    "yql": "^1.0.2"
+  }
+}
