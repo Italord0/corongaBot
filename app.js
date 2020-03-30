@@ -4,10 +4,11 @@ var webservice = require('./config/api.js');
 var app = require("./config/server.js");
 var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
 var server_host = process.env.YOUR_HOST || '0.0.0.0';
-var casos = 0, casosHoje, mortes = 0, mortesHoje, curados, doentes, criticos;
+var casos = 4330, casosHoje, mortes = 140, mortesHoje, curados, doentes, criticos;
 
 app.listen(server_port, server_host, function () {
     console.log("Aplicação online.");
+
 });
 
 function getCorona() {
@@ -23,20 +24,20 @@ function getCorona() {
                     if ((mortes < json.deaths) && (casos < json.cases)) {
                         var novasmortes = (json.deaths - mortes)
                         var novoscasos = (json.cases - casos)
-                        if (novoscasos == 1) {
-                            tweet = novasmortes + " nova morte pelo coronavírus no Brasil :( Total: " + json.deaths + "\nNovos casos: " + novoscasos;
+                        if (novasmortes == 1) {
+                            tweet = novasmortes + " nova morte pelo coronavírus no Brasil :(\nTotal de mortes: " + json.deaths + "\nNovos casos: " + novoscasos + "\nTotal de casos: " + json.cases;
                         } else {
-                            tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :( Total :" + json.deaths + "\nNovos casos: " + novoscasos;
+                            tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes:" + json.deaths + "\nNovos casos: " + novoscasos + "\nTotal de casos: " + json.cases;
                         }
                         mortes = json.deaths;
                         casos = json.cases;
                     } else if (mortes < json.deaths) {
                         var novasmortes = (json.deaths - mortes)
-                        tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :( \nTotal : " + json.deaths;
+                        tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes : " + json.deaths + "\nTotal de casos: " + json.cases;
                         mortes = json.deaths;
                     } else {
                         var novoscasos = (json.cases - casos)
-                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(")
+                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases + "\nTotal de casos: " + json.cases)
                         casos = json.cases
                     }
                     console.log(tweet);
@@ -53,6 +54,7 @@ function getCorona() {
 
 const job = new CronJob('* * * * *', () => {
     //Roda toda hora
+    console.log("Rodando cron")
     getCorona()
 
 })
