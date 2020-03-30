@@ -48,7 +48,7 @@ function getCorona() {
     loadCorona();
 }
 
-const job = new CronJob('0 * * * *', () => {
+const job = new CronJob('* * * * *', () => {
     //Roda toda hora
     getCorona()
 
