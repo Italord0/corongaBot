@@ -4,11 +4,10 @@ var webservice = require('./config/api.js');
 var app = require("./config/server.js");
 var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
 var server_host = process.env.YOUR_HOST || '0.0.0.0';
-var casos = 4330, casosHoje, mortes = 140, mortesHoje, curados, doentes, criticos;
+var casos = 4371, casosHoje, mortes = 141, mortesHoje, curados, doentes, criticos;
 
 app.listen(server_port, server_host, function () {
     console.log("Aplicação online.");
-
 });
 
 function getCorona() {
@@ -37,7 +36,7 @@ function getCorona() {
                         mortes = json.deaths;
                     } else {
                         var novoscasos = (json.cases - casos)
-                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases + "\nTotal de casos: " + json.cases)
+                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases)
                         casos = json.cases
                     }
                     console.log(tweet);
