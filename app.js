@@ -37,7 +37,7 @@ function getCorona() {
                         tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes : " + json.deaths + "\nTotal de casos: " + json.cases;
                     } else {
                         var novoscasos = (json.cases - dados.casos)
-                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases)
+                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases + "\nTotal de mortes : " + json.deaths)
                     }
                     console.log(tweet);
                     cliente.tweetar(tweet);
