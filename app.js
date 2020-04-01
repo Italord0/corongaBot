@@ -26,17 +26,17 @@ function getCorona() {
                         var novasmortes = (json.deaths - dados.mortes)
                         var novoscasos = (json.cases - dados.casos)
                         if (novasmortes == 1) {
-                            tweet = novasmortes + " nova morte pelo coronavírus no Brasil :(\nTotal de mortes: " + json.deaths + " 💀\nNovos casos: " + novoscasos + "\nTotal de casos: " + json.cases;
+                            tweet = novasmortes + " nova morte pelo coronavírus no Brasil :(\nTotal de mortes: " + json.deaths + " 💀\nNovos casos: " + novoscasos + "\nTotal de casos: " + json.cases +" 😷";
                         } else {
-                            tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes:" + json.deaths + " 💀\nNovos casos: " + novoscasos + "\nTotal de casos: " + json.cases;
+                            tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes:" + json.deaths + " 💀\nNovos casos: " + novoscasos + "\nTotal de casos: " + json.cases +" 😷";
                         }
 
                     } else if (dados.mortes < json.deaths) {
                         var novasmortes = (json.deaths - dados.mortes)
-                        tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes : " + json.deaths + " 💀\nTotal de casos: " + json.cases;
+                        tweet = novasmortes + " novas mortes pelo coronavírus no Brasil :(\nTotal de mortes : " + json.deaths + " 💀\nTotal de casos: " + json.cases +" 😷";
                     } else {
                         var novoscasos = (json.cases - dados.casos)
-                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases + " \nTotal de mortes : " + json.deaths+ " 💀")
+                        tweet = (novoscasos + " novos casos de coronavírus no Brasil :(" + "\nTotal de casos : " + json.cases + " 😷 \nTotal de mortes : " + json.deaths+ " 💀")
                     }
                     console.log(tweet);
                     cliente.tweetar(tweet);
