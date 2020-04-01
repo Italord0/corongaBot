@@ -12,11 +12,10 @@ app.listen(server_port, server_host, function () {
 });
 
 function getCorona() {
-
+    var rawdata = fs.readFileSync('data.json');
+    var dados = JSON.parse(rawdata);
     //get
     loadCorona = async () => {
-        var rawdata = fs.readFileSync('data.json');
-        var dados = JSON.parse(rawdata);
         var tweet;
         const response = webservice.get('https://coronavirus-19-api.herokuapp.com/countries/brazil')
             .then(response => {
