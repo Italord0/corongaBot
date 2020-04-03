@@ -23,7 +23,7 @@ function getCorona() {
     //get
     loadCorona = async () => {
         var tweet;
-        const response = webservice.get('https://coronavirus-19-api.herokuapp.com/countries/brazil')
+        const response = webservice.get('brazil')
             .then(response => {
                 const json = response.data;
 
