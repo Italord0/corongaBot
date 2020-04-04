@@ -15,6 +15,27 @@ app.listen(server_port, server_host, function () {
         var zerado = "{\"casos\":0,\"mortes\":0}"
         fs.writeFileSync('data.json', zerado);
     }
+
+    updateData = async () => {
+        const response = webservice.get('brazil')
+            .then(response => {
+                var rawdata = fs.readFileSync('data.json');
+                var dados = JSON.parse(rawdata);
+                const json = response.data;
+                dados.mortes = json.deaths;
+                dados.casos = json.cases;
+                var dadosString = JSON.stringify(dados);
+                fs.writeFileSync('data.json', dadosString);
+                console.log("Dados atualizados")
+                job.start();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    updateData();
+
 });
 
 function getCorona() {
@@ -63,7 +84,6 @@ function getCorona() {
 const job = new CronJob('* * * * *', () => {
     //Roda toda hora
     console.log("Rodando cron")
-    getCorona()
+    getCorona();
 
-})
-job.start();
+});
