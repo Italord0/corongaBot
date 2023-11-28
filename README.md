@@ -1,3 +1,5 @@
+#RIP Heroku ⚰️
+
 Bot informativo do twitter sobre Coronavírus(COVID-19).
 
 ## :rocket: Tecnologias
